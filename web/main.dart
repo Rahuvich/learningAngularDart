@@ -2,7 +2,7 @@ import 'dart:html';
 
 void main() {
   Element title = querySelector('#title');
-  title.text = "This app calculates the sum of both numbers";
+  title.text = "This app converts your decimal number to binary";
   title.style.textAlign = "center";
   title.style.fontSize = "28px";
   title.style.padding = "20px";
@@ -11,12 +11,17 @@ void main() {
 
 
   querySelector('#num1').onChange.listen(func);
-  querySelector('#num2').onChange.listen(func);
 }
 
 void func(Event event){
   int num1 = int.parse((querySelector('#num1') as InputElement).value);
-  int num2 = int.parse((querySelector('#num2') as InputElement).value);
 
-  querySelector('#output').text = (num1 + num2).toString();
+  int bin = 0, i = 1;
+  while(num1 > 0){
+    bin = bin + (num1 % 2)*i;
+    num1 = (num1/2).floor();
+    i = i*10;
+  }
+
+  querySelector('#output').text = (bin).toString();
 }
