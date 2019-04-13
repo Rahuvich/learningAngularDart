@@ -1,6 +1,12 @@
 import 'dart:html';
 
 void main() {
+  Element title = querySelector('#title');
+  title.text = "This app calculates the sum of both numbers";
+  title.style.textAlign = "center";
+  title.style.fontSize = "28px";
+  title.style.padding = "20px";
+
   querySelector('#output').text = 'Your result will be displayed here';
 
 
